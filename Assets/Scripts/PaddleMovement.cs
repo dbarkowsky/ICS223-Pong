@@ -28,7 +28,7 @@ public class PaddleMovement : MonoBehaviour
     private void FixedUpdate()
     {
         Vector3 movement = new Vector3(0, vertInput, 0) * speed * Time.deltaTime;
-        Vector3 newPos = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y + movement.y, -5, 5), transform.position.z);
+        Vector3 newPos = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y + movement.y, -3.5f, 3.5f), transform.position.z);
         rb.MovePosition(newPos);
     }
 }

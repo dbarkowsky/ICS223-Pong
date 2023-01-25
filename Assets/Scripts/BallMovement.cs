@@ -9,34 +9,25 @@ public class BallMovement : MonoBehaviour
     public float speed = 3.0f;
 
     private int offset = 5;
-    private int scoreP1 = 0;
-    private int scoreP2 = 0;
+    private GameObject leftPaddle;
+    private GameObject rightPaddle;
 
     // Start is called before the first frame update
     void Start()
     {
         if (!rb) rb = GetComponent<Rigidbody>();
-
+        leftPaddle = GameObject.FindWithTag("PaddleLeft");
+        rightPaddle = GameObject.FindWithTag("PaddleRight");
         Launch(speed);
     }
 
     // Update is called once per frame
     void Update()
     {
-        GameObject leftPaddle = GameObject.FindWithTag("PaddleLeft");
-        GameObject rightPaddle = GameObject.FindWithTag("PaddleRight");
         if (transform.position.x < leftPaddle.transform.position.x - offset || transform.position.x > rightPaddle.transform.position.x + offset)
         {
-            if (transform.position.x < leftPaddle.transform.position.x - offset)
-            {
-                scoreP2++;
-            } else
-            {
-                scoreP1++;
-            }
             Reset();
             Launch(speed);
-            Debug.Log(scoreP1 + ", " + scoreP2);
         }
     }
 
