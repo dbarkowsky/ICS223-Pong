@@ -5,21 +5,18 @@ using UnityEngine.SocialPlatforms.Impl;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject ball;
-    private GameObject leftPaddle;
-    private GameObject rightPaddle;
-    [SerializeField]
-    UIManager manager;
+    [SerializeField] private GameObject ball;
+    [SerializeField] private GameObject leftPaddle;
+    [SerializeField] private GameObject rightPaddle;
+    [SerializeField] UIManager manager;
     private int scoreP1 = 0;
     private int scoreP2 = 0;
     private int offset = 5;
     // Start is called before the first frame update
     void Start()
     {
-        leftPaddle = GameObject.FindWithTag("PaddleLeft");
-        rightPaddle = GameObject.FindWithTag("PaddleRight");
-        
+        manager.UpdateScore(0, 0);
+        ball.GetComponent<BallMovement>().Launch(GetRandomBallDirection());
     }
 
     // Update is called once per frame
@@ -35,8 +32,19 @@ public class GameManager : MonoBehaviour
             {
                 scoreP1++;
             }
+            
             Debug.Log(scoreP1 + ", " + scoreP2);
             manager.UpdateScore(scoreP1, scoreP2);
+            ball.GetComponent<BallMovement>().Reset();
+            ball.GetComponent<BallMovement>().Launch(GetRandomBallDirection());
         }
+    }
+
+    Vector3 GetRandomBallDirection()
+    {
+        int x = Random.value < 0.5f ? -1 : 1;
+        int y = Random.value < 0.5f ? -1 : 1;
+
+        return new Vector3(x, y, 0.0f);
     }
 }

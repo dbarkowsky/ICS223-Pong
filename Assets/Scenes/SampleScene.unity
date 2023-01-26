@@ -319,6 +319,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 408024414}
   speed: 3
+  increase: 50
+  leftPaddle: {fileID: 1873976107}
+  rightPaddle: {fileID: 2019447364}
 --- !u!1 &588700838
 GameObject:
   m_ObjectHideFlags: 0
@@ -875,6 +878,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ball: {fileID: 408024409}
+  leftPaddle: {fileID: 1873976107}
+  rightPaddle: {fileID: 2019447364}
   manager: {fileID: 1656324329}
 --- !u!4 &1754711396
 Transform:
