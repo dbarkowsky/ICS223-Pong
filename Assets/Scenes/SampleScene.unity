@@ -877,9 +877,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbdd17509eb1a6847a09d094936f2f7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ball: {fileID: 408024409}
   leftPaddle: {fileID: 1873976107}
   rightPaddle: {fileID: 2019447364}
+  ball: {fileID: 408024415}
   manager: {fileID: 1656324329}
 --- !u!4 &1754711396
 Transform:
